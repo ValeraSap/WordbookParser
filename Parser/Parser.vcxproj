@@ -139,7 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DbHandler.cpp" />
+    <ClCompile Include="FileHandler.cpp" />
+    <ClCompile Include="parser.cpp" />
+    <ClCompile Include="shell.c" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="f.xml" />
@@ -147,7 +152,15 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="f.txt" />
+    <Text Include="input_file.txt" />
     <Text Include="o.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DbHandler.h" />
+    <ClInclude Include="FileHandler.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="sqlite3ext.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

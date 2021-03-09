@@ -15,24 +15,59 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <Xml Include="f.xml">
       <Filter>Resource Files</Filter>
+    </Xml>
+    <Xml Include="input_file.xml">
+      <Filter>Resource Files</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="f.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input_file.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="o.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shell.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DbHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHandler.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="input_file.xml">
-      <Filter>Source Files</Filter>
-    </Xml>
-    <Xml Include="f.xml">
-      <Filter>Source Files</Filter>
-    </Xml>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="o.txt">
-      <Filter>Source Files</Filter>
-    </Text>
-    <Text Include="f.txt">
-      <Filter>Source Files</Filter>
-    </Text>
+    <ClInclude Include="sqlite3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite3ext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DbHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
