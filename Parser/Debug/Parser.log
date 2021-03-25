@@ -1,4 +1,0 @@
-﻿  parser.cpp
-C:\Users\Valerie\source\repos\Parser\Parser\parser.cpp(63,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Valerie\source\repos\Parser\Parser\parser.cpp(59): warning C4715: 'Parser::parseLine': not all control paths return a value
-  Parser.vcxproj -> C:\Users\Valerie\source\repos\Parser\Debug\Parser.exe
