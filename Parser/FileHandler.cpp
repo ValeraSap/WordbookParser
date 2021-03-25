@@ -5,35 +5,20 @@ void FileHandler::run()
 {
 	if (ifile->is_open() && ofile->is_open()) {
 
-		/**********РАБОТАЮЩАЯ ЧАСТЬ********
-	while (!ifile->eof()) {
-
-		
-		getline(*ifile, str);
-		auto out = parser.parseLine(str);		
-		if (!out.first.empty() && !out.second.empty())
-		{
-			dbHandler.insertLine(out.first, out.second); //пишем в файл
-			cout << "Inserting spell = " << out.first << ", mean = " << out.second << endl;
-			cout << "reading: ";
-			dbHandler.readLine(out.first);
-		}
-		
-		}*/
-		
+				
 		auto future1=std::async(std::launch::async, [&] {
 			while (!ifile->eof()) {
 
-				while (words.size() > 250) //пока размер списка больше 250 - отдыхаем
+				while (words.size() > 250) //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 250 - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					this_thread::sleep_for(chrono::milliseconds(50));
 
 				getline(*ifile, str);
+				
 				auto out = parser.parseLine(str);
 				if (!out.first.empty() && !out.second.empty()) {
-					cout << "words.push_back spell = " << out.first << ", mean = " << out.second << endl;
-					//то что выше убрать бы куда-то
+					//пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅ
 					listMutex.lock();
-					words.push_back(out); //вставить в конец
+					words.push_back(out); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
 					listMutex.unlock();
 				}
 			}
@@ -41,16 +26,16 @@ void FileHandler::run()
 		auto future2 = std::async(std::launch::async, [&] {
 			while (!ifile->eof() || !words.empty()) {
 				while (words.empty())
-					this_thread::sleep_for(chrono::milliseconds(10)); //может секунда это много
+					this_thread::sleep_for(chrono::milliseconds(10)); //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 				listMutex.lock();
-				auto out = words.front();  //взять первый элемент 
-				words.pop_front();	//удалить первый элем
+				auto out = words.front();  //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
+				words.pop_front();	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 				listMutex.unlock();
 
-				cout << "dbHandler.insertLine spell = " << out.first << ", mean = " << out.second << endl;
-				//то что ниже тоже бы куда-то убрать
-				dbHandler.insertLine(out.first, out.second); //пишем в файл
+				//cout << "dbHandler.insertLine spell = " << out.first << ", mean = " << out.second << endl;
+				//пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+				dbHandler.insertLine(out.first, out.second); //пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
 			//fromList();
 			}
 		});
@@ -71,24 +56,24 @@ FileHandler::~FileHandler()
 	ofile->close();
 }
 
-void FileHandler::toList() //переименовать бы
+void FileHandler::toList() //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
 {
 	getline(*ifile, str);
 	auto out = parser.parseLine(str);
-	//то что выше убрать бы куда-то
+	//пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅ
 	listMutex.lock();
-	words.push_back(out); //вставить в конец
+	words.push_back(out); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
 	listMutex.unlock();
 }
 
 void FileHandler::fromList()
 {	
 	listMutex.lock();
-	auto out = words.front();  //взять первый элемент 
-	words.pop_front();	//удалить первый элем
+	auto out = words.front();  //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
+	words.pop_front();	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 	listMutex.unlock();
 
-	//то что ниже тоже бы куда-то убрать
-	dbHandler.insertLine(out.first, out.second); //пишем в файл
+	//пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+	dbHandler.insertLine(out.first, out.second); //пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
 
 }

@@ -28,7 +28,6 @@ private:
 
 	Parser parser;	
 	string str;
-	mutex listMutex; //std::lock_guard<std::timed_mutex> firstGuard(ofileMutex);
 	list <pair<string, string>> words;
 	DbHandler dbHandler;
 

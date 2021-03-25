@@ -3,16 +3,11 @@
 #include <chrono>
 #include "FileHandler.h"
 #include <future>
-using namespace std;
 
-
-const char* INPUT_FILENAME = "f.txt";
+const char* INPUT_FILENAME = "fu8.txt";
 const char* OUTPUT_FILENAME = "o.xml";
 
-
 int main() {
-
-	setlocale(LC_ALL,"rus");
 
 	auto begin = std::chrono::steady_clock::now();
 	
@@ -20,7 +15,7 @@ int main() {
 
 		FileHandler fileHandler(INPUT_FILENAME, OUTPUT_FILENAME);
 		fileHandler.run();
-		
+
 		
 	auto end = std::chrono::steady_clock::now();
 	auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);

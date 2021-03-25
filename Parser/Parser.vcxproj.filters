@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="f.xml">
-      <Filter>Resource Files</Filter>
-    </Xml>
     <Xml Include="input_file.xml">
       <Filter>Resource Files</Filter>
     </Xml>
@@ -30,6 +27,12 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="o.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="fansii.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="fu8.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
@@ -60,14 +63,19 @@
     <ClInclude Include="sqlite3ext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="parser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DbHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FileHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wordbook.db">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
